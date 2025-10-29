@@ -10,7 +10,7 @@
 
 
 ### 🌐 Live Demo
-**🚀 Try It Now:** [https://tinyurl.com/athenishackodisha](https://tinyurl.com/athenishackodisha)
+**🚀 Try It Now:** [https://tinyurl.com/athenishackodisha](https://tinyurl.com/athenishackodisha) - _Deprecated_
 
 ### Demo Video
 [📹 Watch 3-Minute Demo](https://youtu.be/hdsk1XEYD5Q) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
