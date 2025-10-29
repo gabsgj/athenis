@@ -206,8 +206,8 @@ A **production-ready Flask web application** powered by decentralized GPU comput
 **Quick Start:**
 ```bash
 # Clone and run
-git clone https://github.com/gabsgj/hackOdisha.git
-cd hackOdisha
+git clone https://github.com/gabsgj/athenis.git
+cd athenis
 make dev
 ```
 
@@ -250,8 +250,8 @@ akash tx market lease create \
 Get the service URI and visit your deployed application!
 
 **✅ SUCCESSFULLY DEPLOYED:**
-- **Live App:** [https://tinyurl.com/athenishackodisha](https://tinyurl.com/athenishackodisha)
-- **Direct URL:** [http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com](http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com)
+- **Live App:** [https://tinyurl.com/athenishackodisha](https://tinyurl.com/athenishackodisha) - _Deprecated_
+- **Direct URL:** [http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com](http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com) - _Deprecated_
 - **Status:** 🟢 Active on Akash Network Sandbox
 
 ---
@@ -350,7 +350,7 @@ make test  # Run comprehensive test suite
 ## 🎬 Demo Video & Screenshots
 
 ### Demo Video
-**[📹 Watch 3-Minute Demo](https://your-demo-video-link.com)**
+**[📹 Watch 3-Minute Demo](https://youtu.be/hdsk1XEYD5Q)**
 
 ### Screenshots
 
