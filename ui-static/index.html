@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athenis - Legal Document Simplifier (UI Only)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.0"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <!-- Warning banner -->
+  <div class="w-full bg-amber-100 border-b border-amber-300 text-amber-900 text-sm py-2 px-4 flex items-center justify-center gap-2">
+    <span class="font-semibold">UI only deployment</span>
+    <span>Backend/API is not running on this domain. Connect to your own Athenis API instance to enable analysis.</span>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+    <!-- Header -->
+    <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight">Athenis</h1>
+        <p class="text-gray-600 mt-1">Legal document simplifier & risk analyzer – frontend only demo.</p>
+      </div>
+      <div class="text-xs text-gray-500 bg-white border border-gray-200 rounded-lg px-3 py-2 max-w-sm">
+        Deploy this folder (ui-static) to Netlify/Vercel and point it at a running backend using <code>API_BASE</code> in <code>main.js</code>.
+      </div>
+    </header>
+
+    <section class="grid md:grid-cols-2 gap-6 items-start">
+      <!-- Left: inputs -->
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-4">
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold">1</span>
+            Document input
+          </h2>
+
+          <div class="flex bg-gray-100 rounded-lg p-1 text-sm">
+            <button id="tab-upload" class="flex-1 px-3 py-2 rounded-md bg-white shadow-sm font-medium" type="button">
+              Upload file
+            </button>
+            <button id="tab-paste" class="flex-1 px-3 py-2 rounded-md text-gray-600 hover:bg-white/70" type="button">
+              Paste text
+            </button>
+          </div>
+
+          <div id="panel-upload" class="space-y-3">
+            <label class="block text-sm font-medium text-gray-700">File</label>
+            <div class="relative border-2 border-dashed border-gray-300 rounded-xl p-6 text-center text-sm text-gray-500 bg-gray-50">
+              <input id="file-input" type="file" accept=".pdf,.docx,.txt" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+              <p class="font-medium mb-1">Drop a PDF / DOCX / TXT here</p>
+              <p class="text-xs text-gray-400">Max 20 MB · Processed by your backend API</p>
+            </div>
+          </div>
+
+          <div id="panel-paste" class="space-y-3 hidden">
+            <label class="block text-sm font-medium text-gray-700">Text</label>
+            <textarea id="text-input" rows="8" class="w-full text-sm rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="Paste your legal document text here..."></textarea>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-4">
+          <h2 class="text-lg font-semibold flex items-center gap-2">
+            <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold">2</span>
+            Analysis options
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div class="space-y-1">
+              <label class="block text-xs font-medium text-gray-600">Task</label>
+              <select id="task-select" class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                <option value="simplify">Simplify language</option>
+                <option value="summarize">Create summary</option>
+                <option value="risk">Risk analysis</option>
+                <option value="full">Full analysis</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="block text-xs font-medium text-gray-600">Output language</label>
+              <select id="language-select" class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                <option value="auto">Auto detect</option>
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-1 text-sm">
+            <label class="block text-xs font-medium text-gray-600">Demo API key (optional)</label>
+            <input id="api-key" type="password" class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="Forwarded as X-API-Key header to your backend (optional)" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button id="btn-analyze" type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-60">
+              <span>Analyze document</span>
+            </button>
+            <button id="btn-stream" type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-60">
+              <span>Stream simplify</span>
+            </button>
+          </div>
+
+          <p class="text-xs text-gray-500">
+            Note: On this Netlify deployment, these buttons will only work if <code>API_BASE</code> in <code>main.js</code> points to a reachable Athenis backend.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: outputs -->
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-2">
+          <h2 class="text-sm font-semibold">Simplified text</h2>
+          <div id="output-text" class="min-h-[120px] text-sm bg-gray-50 rounded-lg border border-gray-200 px-3 py-2 overflow-y-auto">
+            <span class="text-gray-400 text-xs">Results from your backend will appear here.</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-2">
+          <h2 class="text-sm font-semibold">Summary</h2>
+          <pre id="summary-text" class="min-h-[80px] text-xs bg-gray-50 rounded-lg border border-gray-200 px-3 py-2 whitespace-pre-wrap text-gray-700">Summary will appear here.</pre>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-2">
+          <h2 class="text-sm font-semibold">Risk analysis</h2>
+          <div id="risk-analysis" class="min-h-[80px] text-xs bg-gray-50 rounded-lg border border-gray-200 px-3 py-2 text-gray-700">
+            Risk analysis will appear here.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 space-y-2">
+          <h2 class="text-sm font-semibold">Original text</h2>
+          <pre id="original-text" class="min-h-[80px] text-xs bg-gray-50 rounded-lg border border-gray-200 px-3 py-2 whitespace-pre-wrap text-gray-700">Original document text will appear here.</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast-root" class="fixed top-4 right-4 space-y-2 z-50"></div>
+
+  <script src="./main.js"></script>
+</body>
+</html>

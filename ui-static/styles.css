@@ -1,0 +1,34 @@
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #f3f4f6;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+
+/* Simple custom scrollbar for output areas */
+#output-text,
+#summary-text,
+#risk-analysis,
+#original-text {
+  scrollbar-width: thin;
+}
+
+#output-text::-webkit-scrollbar,
+#summary-text::-webkit-scrollbar,
+#risk-analysis::-webkit-scrollbar,
+#original-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+#output-text::-webkit-scrollbar-thumb,
+#summary-text::-webkit-scrollbar-thumb,
+#risk-analysis::-webkit-scrollbar-thumb,
+#original-text::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.9);
+  border-radius: 999px;
+}

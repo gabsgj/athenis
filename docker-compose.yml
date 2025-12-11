@@ -18,7 +18,6 @@ services:
       - EMBEDDING_MODEL=${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
     ports:
       - "8080:8080"
-    profiles: ["cpu", "gpu"]
     deploy:
       resources:
         reservations:
@@ -38,8 +37,3 @@ services:
     environment:
       - PORT=8091
       - PY_EXTRACT_SCRIPT=/app/app/utils/extract.py
-    profiles: ["cpu", "gpu"]
-
-profiles:
-  gpu: {}
-  cpu: {}
