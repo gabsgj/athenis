@@ -26,24 +26,11 @@
 
 ---
 
-## 🏆 Hackathon Submission Details
-
-**Team:** Athenis Developers  
-**Track:** Akash Network - Best Use of Akash GPUs/Compute  
-**Event:** HackOdisha 5.0 (Sep 6-8, 2025)  
-**Submission Category:** AI/ML Application with Decentralized Deployment
-
 ### 👥 Team Members
 - **Gabriel James**
 - **Harinarayanan R**
 - **Jany Sabarinath**
 - **Nayana Shaji**
-
-### 🔗 Akash Network Deployment
-**Akash Wallet Address:** `akash1u9uh2y5ad3re9s22c36sagedlct2qhk2g58gfh`  
-**Deployment Configuration:** [`deploy-cpu-fixed.yaml`](./deploy-cpu-fixed.yaml) | [`deploy-testnet.yaml`](./deploy-testnet.yaml)  
-**🎉 Live Demo:** [https://tinyurl.com/athenishackodisha](https://tinyurl.com/athenishackodisha)  
-**Direct Akash URL:** [http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com](http://4sem34mr1ddg5aogjaci3uajkc.ingress.europlots-sandbox.com)
 
 ---
 
